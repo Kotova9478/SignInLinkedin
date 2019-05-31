@@ -5,9 +5,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class BasePage {
     protected WebDriver driver;
     public WebDriverWait wait;
-    protected HomePage homePage;
+
 
     public BasePage(WebDriver driver){
         PageFactory.initElements(driver, this);
+        this.driver = driver;
     }
 }

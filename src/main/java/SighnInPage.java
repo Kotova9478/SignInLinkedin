@@ -1,3 +1,4 @@
+import helper.EmailPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,9 +13,7 @@ public class SighnInPage extends BasePage{
     public SighnInPage(WebDriver driver){
         super(driver);
     }
-     protected HomePage homePage;
-    protected SighnInPage sighnInPage;
-    public WebDriverWait wait;
+
 
     @FindBy(css = "#username")
     private WebElement emailField;
@@ -25,35 +24,18 @@ public class SighnInPage extends BasePage{
     @FindBy(css = ".btn__primary--large.from__button--floating")
     private  WebElement sighnInButton;
 
-    @FindBy (css = "#country-code-selector")
-    private List<WebElement> codeSelector;
 
-    @FindBy (css = "#phone-number")
-    private WebElement phoneNumberField;
 
-    @FindBy(css = ".primary-action")
-    private WebElement submitButton;
-
-    @FindBy(css = "#modalInputPassword")
-    private WebElement additionalVindowPassword;
-
-    @FindBy(css = ".modal-primary-action")
-    private  WebElement additionalSubmit;
-
-    @FindBy(css = "#pin")
-    private WebElement inputCodeField;
-
-    @FindBy(css = ".primary-action")
-    private WebElement verify;
-
-    public void fillEmailField(){
+    public void fillEmailField(String email){
         //wait.until(ExpectedConditions.elementToBeClickable(emailField));
-        emailField.sendKeys("it9478@gmail.com");
+        emailField.sendKeys(email);
     }
-    public void fillPasswordField(){
+
+    public void fillPasswordField(String pasword){
        // wait.until(ExpectedConditions.elementToBeClickable(passwordField));
-        passwordField.sendKeys("12332423534");
+        passwordField.sendKeys(pasword);
     }
+
     public VerifyPage clickSighnInField(){
         //wait.until(ExpectedConditions.elementToBeClickable(submitButton));
         sighnInButton.click();
